@@ -1,0 +1,33 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Compilação e Distribuição
+build/
+dist/
+*.egg-info/
+
+# Ambientes Virtuais
+venv/
+.venv/
+env/
+.env/
+
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dados gerados localmente nos testes
+dados_sirgas2000/
+*.kmz
+*.kml
+*.xlsx
+*.csv
+*.shp
+*.dbf
+*.prj
+*.shx
+*.gpkg
+*.jpg
+*.jpeg
