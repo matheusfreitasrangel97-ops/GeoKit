@@ -1,4 +1,6 @@
 import os
+import sys
+import time
 import webbrowser
 import customtkinter as ctk
 from tkinter import messagebox
@@ -8,6 +10,82 @@ from geokit.updater import check_for_updates
 from geokit.modules.sinaflor import FrameSinaFlor
 from geokit.modules.fepam import FrameFepam
 from geokit.modules.fotos import FrameFotosKMZ
+
+class UpdateProgressWindow(ctk.CTkToplevel):
+    def __init__(self, parent, download_url):
+        super().__init__(parent)
+        self.title("Atualizando GeoKit")
+        self.geometry("420x200")
+        self.resizable(False, False)
+        self.transient(parent)
+        
+        # Faz com que a janela bloqueie a principal (modal)
+        self.grab_set()
+        
+        # Centraliza a janela com base na janela principal
+        parent.update_idletasks()
+        x = parent.winfo_x() + (parent.winfo_width() // 2) - 210
+        y = parent.winfo_y() + (parent.winfo_height() // 2) - 100
+        self.geometry(f"420x200+{x}+{y}")
+        
+        self.label_status = ctk.CTkLabel(
+            self, 
+            text="Preparando download...", 
+            font=ctk.CTkFont(size=14, weight="bold")
+        )
+        self.label_status.pack(pady=(25, 10))
+        
+        self.progress_bar = ctk.CTkProgressBar(self, width=340)
+        self.progress_bar.set(0.0)
+        self.progress_bar.pack(pady=10)
+        
+        self.label_percent = ctk.CTkLabel(self, text="0% (0.0 MB / 0.0 MB)", text_color="gray")
+        self.label_percent.pack(pady=5)
+        
+        # Inicia o download assíncrono
+        from geokit.updater import download_and_install_update
+        download_and_install_update(
+            download_url,
+            self.on_progress,
+            self.on_complete,
+            self.on_error
+        )
+        
+    def on_progress(self, percent, downloaded_mb, total_mb):
+        self.after(0, lambda: self._update_ui(percent, downloaded_mb, total_mb))
+        
+    def _update_ui(self, percent, downloaded_mb, total_mb):
+        if percent == -1:
+            self.label_status.configure(text="Baixando atualização...")
+            self.label_percent.configure(text=f"{downloaded_mb:.1f} MB baixados")
+            self.progress_bar.configure(mode="indeterminate")
+            self.progress_bar.start()
+        else:
+            self.label_status.configure(text="Baixando arquivos da nova versão...")
+            self.progress_bar.set(percent)
+            self.label_percent.configure(text=f"{int(percent * 100)}% ({downloaded_mb:.1f} MB / {total_mb:.1f} MB)")
+            
+    def on_complete(self):
+        self.after(0, self._finalize)
+        
+    def _finalize(self):
+        self.label_status.configure(text="Download concluído! Instalando...", text_color="green")
+        self.update_idletasks()
+        # Aguarda 1 segundo antes de disparar o atualizador e fechar o app
+        time.sleep(1.0)
+        self.destroy()
+        sys.exit(0)
+        
+    def on_error(self, err_msg):
+        self.after(0, lambda: self._show_error(err_msg))
+        
+    def _show_error(self, err_msg):
+        messagebox.showerror(
+            "Erro na Atualização", 
+            f"Não foi possível baixar ou instalar a atualização:\n\n{err_msg}"
+        )
+        self.destroy()
+
 
 class GeoKitApp(ctk.CTk):
     def __init__(self):
@@ -172,8 +250,8 @@ class GeoKitApp(ctk.CTk):
         mensagem = f"Uma nova versão ({remote_version}) do GeoKit está disponível!\n"
         if notes:
             mensagem += f"\nNotas de atualização:\n{notes}\n"
-        mensagem += "\nDeseja abrir a página do projeto para fazer o download da nova versão?"
+        mensagem += "\nDeseja baixar e instalar esta nova versão de forma automática?"
         
         resposta = messagebox.askyesno("Atualização Disponível", mensagem, icon="info")
         if resposta:
-            webbrowser.open(url)
+            UpdateProgressWindow(self, url)
