@@ -50,6 +50,7 @@ class GeoKitApp(ctk.CTk):
             height=44, 
             font=ctk.CTkFont(size=14, weight="bold"), 
             anchor="w",
+            text_color=["#2b2b2b", "#f5f5f5"],
             command=self.mostrar_sinaflor
         )
         self.btn_sinaflor.grid(row=2, column=0, padx=20, pady=8, sticky="ew")
@@ -60,6 +61,7 @@ class GeoKitApp(ctk.CTk):
             height=44, 
             font=ctk.CTkFont(size=14, weight="bold"), 
             anchor="w",
+            text_color=["#2b2b2b", "#f5f5f5"],
             command=self.mostrar_fepam
         )
         self.btn_fepam.grid(row=3, column=0, padx=20, pady=8, sticky="ew")
@@ -70,6 +72,7 @@ class GeoKitApp(ctk.CTk):
             height=44, 
             font=ctk.CTkFont(size=14, weight="bold"), 
             anchor="w",
+            text_color=["#2b2b2b", "#f5f5f5"],
             command=self.mostrar_fotos
         )
         self.btn_fotos.grid(row=4, column=0, padx=20, pady=8, sticky="ew")
@@ -125,14 +128,14 @@ class GeoKitApp(ctk.CTk):
         self.frame_fepam_view.grid_forget()
         self.frame_fotos_view.grid_forget()
         
-        # Reseta os botões para transparentes (inativos)
-        self.btn_sinaflor.configure(fg_color="transparent")
-        self.btn_fepam.configure(fg_color="transparent")
-        self.btn_fotos.configure(fg_color="transparent")
+        # Reseta os botões para transparentes (inativos) com cor de texto adaptativa
+        self.btn_sinaflor.configure(fg_color="transparent", text_color=["#2b2b2b", "#f5f5f5"])
+        self.btn_fepam.configure(fg_color="transparent", text_color=["#2b2b2b", "#f5f5f5"])
+        self.btn_fotos.configure(fg_color="transparent", text_color=["#2b2b2b", "#f5f5f5"])
 
     def destacar_botao(self, botao):
-        # Destaca o botão ativo com a cor azul padrão do tema
-        botao.configure(fg_color=["#3a7ebf", "#1f538d"])
+        # Destaca o botão ativo com a cor azul padrão do tema e texto branco
+        botao.configure(fg_color=["#3a7ebf", "#1f538d"], text_color="#ffffff")
 
     def mostrar_sinaflor(self):
         self.esconder_tudo()
