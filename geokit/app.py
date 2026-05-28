@@ -125,15 +125,14 @@ class GeoKitApp(ctk.CTk):
         self.frame_fepam_view.grid_forget()
         self.frame_fotos_view.grid_forget()
         
-        # Reseta os botões para a cor padrão do CustomTkinter
-        theme = ctk.get_appearance_mode()
-        self.btn_sinaflor.configure(fg_color=None)
-        self.btn_fepam.configure(fg_color=None)
-        self.btn_fotos.configure(fg_color=None)
+        # Reseta os botões para transparentes (inativos)
+        self.btn_sinaflor.configure(fg_color="transparent")
+        self.btn_fepam.configure(fg_color="transparent")
+        self.btn_fotos.configure(fg_color="transparent")
 
     def destacar_botao(self, botao):
-        # Destaca o botão ativo com cor mais escura
-        botao.configure(fg_color=["#14375e", "#1f538d"])
+        # Destaca o botão ativo com a cor azul padrão do tema
+        botao.configure(fg_color=["#3a7ebf", "#1f538d"])
 
     def mostrar_sinaflor(self):
         self.esconder_tudo()
