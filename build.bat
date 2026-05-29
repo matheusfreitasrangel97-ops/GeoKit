@@ -1,25 +1,26 @@
 @echo off
 echo =======================================================
-echo Compilador GeoKit (Distribuicao Standalone)
+echo Compilador GeoKit (Distribuicao Executavel Unico)
 echo =======================================================
 echo.
 
 echo [1/3] Limpando arquivos de builds anteriores...
 if exist build rmdir /s /q build
 if exist dist rmdir /s /q dist
+if exist GeoKit.spec del /q GeoKit.spec
 echo.
 
-echo [2/3] Iniciando empacotamento com PyInstaller...
+echo [2/3] Iniciando empacotamento baseado no build_spec.py...
 echo Isso pode levar alguns minutos. Aguarde...
-call "%USERPROFILE%\AppData\Local\miniconda3\python.exe" -m PyInstaller --noconfirm --onedir --windowed --name "GeoKit" main.py
+call "%USERPROFILE%\AppData\Local\miniconda3\python.exe" build_spec.py
 echo.
 
 echo [3/3] Processo finalizado!
 echo =======================================================
 echo O seu aplicativo pronto para uso esta localizado na pasta:
-echo %CD%\dist\GeoKit
+echo %CD%\dist
 echo.
-echo Para abrir o programa, basta entrar nessa pasta e dar um
-echo clique duplo no arquivo GeoKit.exe
+echo Para abrir o programa, basta executar o arquivo:
+echo %CD%\dist\GeoKit.exe
 echo =======================================================
 pause

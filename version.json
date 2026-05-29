@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
-  "url": "https://github.com/matheusfreitasrangel97-ops/GeoKit/releases/download/v1.0.0/GeoKit.zip",
-  "notes": "Lançamento inicial da Caixa de Ferramentas GeoKit com suporte a SinaFlor (DMS), Norma FEPAM (SIRGAS 2000) e Fotos -> KMZ."
+  "version": "1.1.0",
+  "url": "https://github.com/matheusfreitasrangel97-ops/GeoKit/releases/download/v1.1.0/GeoKit.zip",
+  "notes": "Atualização 1.1: Agora o GeoKit é distribuído como um único arquivo executável standalone (.exe) independente, sem dependência de outras pastas locais."
 }
