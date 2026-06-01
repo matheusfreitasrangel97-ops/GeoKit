@@ -1,34 +1,64 @@
+# Pasta que o Python usa para guardar arquivos de código pré-compilados (.pyc) para agilizar as importações de módulos.
 __pycache__/
+# Arquivos de código Python compilado otimizados (.pyo, .pyc, .pyd).
 *.py[cod]
+# Arquivos de classes compiladas para rodar no Jython (implementação do Python na máquina virtual Java).
 *$py.class
 
 # Compilação e Distribuição
+# Pasta criada pelo PyInstaller como área temporária de trabalho durante a compilação do executável.
 build/
+# Pasta onde fica armazenado o arquivo executável definitivo (GeoKit.exe) após o término da compilação.
 dist/
+# Pasta gerada pelo instalador de pacotes do Python contendo metadados de empacotamento.
 *.egg-info/
+# Arquivos de especificações de build do PyInstaller. Geralmente são ignorados se criados de forma dinâmica.
 *.spec
 
 # Ambientes Virtuais
+# Pasta padrão do ambiente virtual do Python usado para instalar as dependências do projeto localmente.
 venv/
+# Pasta alternativa do ambiente virtual do Python ativa neste projeto.
 .venv/
+# Pasta alternativa de ambiente virtual do Python usada em outros setups de desenvolvimento.
 env/
+# Arquivo especial para armazenar variáveis de ambiente locais e chaves secretas do projeto.
 .env/
 
 # Arquivos do Sistema Operacional
+# Arquivo invisível do macOS que armazena informações de visualização de pastas personalizadas.
 .DS_Store
+# Arquivo do Windows que armazena cache de visualização em miniaturas de imagens de pastas.
 Thumbs.db
+# Arquivo de configuração de diretórios do Windows usado para personalizar as propriedades visuais das pastas.
 desktop.ini
 
 # Dados gerados localmente nos testes
+# Pasta temporária que o GeoKit cria para salvar os arquivos geográficos após a conversão de projeção para a FEPAM.
 dados_sirgas2000/
+# Arquivos compactados de mapas do Google Earth que contêm dados geográficos e imagens embutidas.
 *.kmz
+# Arquivos XML comuns de mapas do Google Earth contendo coordenadas geográficas.
 *.kml
+# Arquivos de planilhas de tabelas eletrônicas gerados em testes pelo Microsoft Excel.
 *.xlsx
+# Arquivos de tabelas de texto separado por vírgula gerados em testes.
 *.csv
+# Arquivo principal do formato Shapefile contendo as coordenadas das geometrias espaciais.
 *.shp
+# Arquivo de tabela do formato Shapefile contendo os dados dos atributos alfanuméricos.
 *.dbf
+# Arquivo do formato Shapefile contendo a definição do Sistema de Referência de Coordenadas (projeção CRS).
 *.prj
+# Arquivo de índice de geometria do formato Shapefile para buscas espaciais velozes.
 *.shx
+# Arquivo de banco de dados geográfico integrado em formato único SQLite (GeoPackage).
 *.gpkg
+# Imagens normais no formato JPG usadas nos testes locais da ferramenta de fotos.
 *.jpg
+# Imagens no formato JPEG.
 *.jpeg
+
+# Arquivos ZIP comprimidos (como GeoKit.zip de releases)
+*.zip
+

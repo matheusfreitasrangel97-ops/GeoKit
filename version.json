@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
-  "url": "https://github.com/matheusfreitasrangel97-ops/GeoKit/releases/download/v1.1.0/GeoKit.zip",
-  "notes": "Atualização 1.1: Agora o GeoKit é distribuído como um único arquivo executável standalone (.exe) independente, sem dependência de outras pastas locais."
+  "version": "1.2.0",
+  "url": "https://github.com/matheusfreitasrangel97-ops/GeoKit/releases/download/v1.2.0/GeoKit.zip",
+  "notes": "Atualização 1.2.0 do GeoKit - Correções de segurança, automação de compilação e script de lançamento direto no GitHub."
 }

@@ -1,7 +1,14 @@
+# customtkinter é a biblioteca usada para construir a interface visual moderna (janelas, botões, caixas de entrada) do aplicativo.
 customtkinter>=5.2.0
+# pandas é a biblioteca utilizada para carregar, ler, manipular e processar tabelas de dados de planilhas.
 pandas>=2.0.0
+# geopandas estende o pandas permitindo ler, analisar e gravar dados de mapas vetoriais e arquivos geográficos (.shp, .gpkg).
 geopandas>=0.13.0
+# exif é a biblioteca usada para inspecionar e extrair os metadados internos de fotos (como data, hora e coordenadas de GPS).
 exif>=1.6.0
+# pillow (PIL) é a biblioteca de processamento de imagens usada para redimensionar, rotacionar e preparar fotos para o mapa.
 pillow>=10.0.0
+# simplekml é a biblioteca usada para estruturar e gerar arquivos de mapa KML do Google Earth de forma simples.
 simplekml>=1.3.6
+# openpyxl é o motor de leitura e gravação que o pandas utiliza por baixo dos panos para manipular arquivos do Excel (.xlsx).
 openpyxl>=3.1.0
