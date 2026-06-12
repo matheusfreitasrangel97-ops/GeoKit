@@ -1,6 +1,7 @@
 # GeoKit — Caixa de Ferramentas Geográficas
 
 O **GeoKit** é um aplicativo desktop de código aberto desenvolvido em Python com interface moderna (`customtkinter`), projetado especificamente para auxiliar profissionais e estudantes da área de geotecnologias no Brasil a automatizarem rotinas geoespaciais comuns.
+<img width="999" height="752" alt="Captura de tela 2026-06-12 121209" src="https://github.com/user-attachments/assets/95bba5cc-7bfa-4fe4-901f-2204094fedd3" />
 
 ---
 
